@@ -10,7 +10,7 @@ tags:
 canonical: https://www.bitdoze.com/install-nodejs-using-nvm-macos-ubuntu/
 ---
 
-import { YouTube } from 'astro-embed';
+import YouTubeEmbed from '~/components/widgets/YouTubeEmbed.astro';
 
 Node.js can be installed in different ways, in this article we are going to leave NVM and see how it can be installed on our Mac or ubuntu machines. M1 or M2 are also supported with these.
 
@@ -62,7 +62,10 @@ nvm --version
 
 ## Youtube Video With Details
 
-    <YouTube id="https://youtu.be/1dbmulk-ZcE" />
+<YouTubeEmbed
+  url="https://www.youtube.com/embed/1dbmulk-ZcE"
+  label="How to Install Node.js using NVM on MacOS and Ubuntu"
+/>
 
 ### 1.2 Ubuntu NVM Installation
 

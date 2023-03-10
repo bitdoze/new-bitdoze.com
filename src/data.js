@@ -25,11 +25,11 @@ export const headerData = {
     },
     {
       text: 'VPS',
-      href: '/vps/',
+      href: '/cat/vps/',
     },
     {
       text: 'CMS',
-      href: '/cms/',
+      href: '/cat/cms/',
     },
     {
       text: 'Blog',
@@ -42,19 +42,14 @@ export const headerData = {
 export const footerData = {
   links: [
     {
-      title: 'Product',
+      title: 'Category',
       links: [
-        { text: 'Features', href: '#' },
-        { text: 'Security', href: '#' },
-        { text: 'Team', href: '#' },
-        { text: 'Enterprise', href: '#' },
-        { text: 'Customer stories', href: '#' },
-        { text: 'Pricing', href: '#' },
-        { text: 'Resources', href: '#' },
+        { text: 'VPS', href: '/cat/vps/' },
+        { text: 'CMS', href: '/cat/cms' },
       ],
     },
     {
-      title: 'Platform',
+      title: 'Resources',
       links: [
         { text: 'Developer API', href: '#' },
         { text: 'Partners', href: '#' },
@@ -64,25 +59,11 @@ export const footerData = {
       ],
     },
     {
-      title: 'Support',
+      title: 'Usefull',
       links: [
-        { text: 'Docs', href: '#' },
-        { text: 'Community Forum', href: '#' },
-        { text: 'Professional Services', href: '#' },
-        { text: 'Skills', href: '#' },
-        { text: 'Status', href: '#' },
-      ],
-    },
-    {
-      title: 'Company',
-      links: [
-        { text: 'About', href: '#' },
-        { text: 'Blog', href: '#' },
-        { text: 'Careers', href: '#' },
-        { text: 'Press', href: '#' },
-        { text: 'Inclusion', href: '#' },
-        { text: 'Social Impact', href: '#' },
-        { text: 'Shop', href: '#' },
+        { text: 'Heroku Alternative', href: '/coolify-install-heroku-alternative/' },
+        { text: 'CloudPanel Install', href: '/install-cloudpanel-host-nodejs/' },
+        { text: 'Astro.JS VPS Deploy', href: '/deploy-astro-on-vps/' },
       ],
     },
   ],
@@ -91,14 +72,18 @@ export const footerData = {
     { text: 'Privacy Policy', href: getPermalink('/privacy') },
   ],
   socialLinks: [
-    { ariaLabel: 'Twitter', icon: 'tabler:brand-twitter', href: '#' },
-    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
-    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },
+    { ariaLabel: 'Twitter', icon: 'tabler:brand-twitter', href: 'https://twitter.com/bitdoze' },
+    {
+      ariaLabel: 'Youtube',
+      icon: 'tabler:brand-youtube',
+      href: 'https://www.youtube.com/channel/UCFWumT6DmvoDrerQRE4BYzw',
+    },
+    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: 'https://www.facebook.com/bitdozecom' },
     { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
-    { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/onwidget/astrowind' },
+    { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/bitdoze' },
   ],
   footNote: `
-    <span class="w-5 h-5 md:w-6 md:h-6 md:-mt-0.5 bg-cover mr-1.5 float-left rounded-sm bg-[url(https://onwidget.com/favicon/favicon-32x32.png)]"></span>
-    Made by <a class="text-blue-600 hover:underline dark:text-gray-200" href="https://onwidget.com/"> onWidget</a> · All rights reserved.
+    <span class="w-5 h-5 md:w-6 md:h-6 md:-mt-0.5 bg-cover mr-1.5 float-left rounded-sm bg-[url(https:/www.bitdoze.com/bitdoze-50x50.png)]"></span>
+  <a class="text-blue-600 hover:underline dark:text-gray-200" href="https://www.bitdoze.com/"> BitDoze</a> · All rights reserved.
   `,
 };

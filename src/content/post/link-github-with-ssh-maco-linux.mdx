@@ -14,7 +14,7 @@ import { Picture } from '@astrojs/image/components';
 import githubssh1 from '~/assets/images/2210/github_ssh_key.jpeg';
 import githubssh2 from '~/assets/images/2210/github_add_ssh_key.jpeg';
 import githubssh3 from '~/assets/images/2210/create_repo.jpeg';
-import { YouTube } from 'astro-embed';
+import YouTubeEmbed from '~/components/widgets/YouTubeEmbed.astro';
 
 [GitHub](https://github.com/) is a public repository where you can store your git projects. Most of the services offer integrations with GitHub and you can use it to store your projects or to store your static websites like Gatsy or Astro ones.
 
@@ -66,7 +66,7 @@ Now your GitHub account should be linked to the laptop and you can
 
 ## Youtube Video With Details
 
-<YouTube id="https://youtu.be/4Y3Mi49-TrA" />
+<YouTubeEmbed url="https://www.youtube.com/embed/4Y3Mi49-TrA" label="Link GitHub with A SSH Key to MacOS or Linux" />
 
 ## Create A GitHub Repo and Push From Your Laptop
 

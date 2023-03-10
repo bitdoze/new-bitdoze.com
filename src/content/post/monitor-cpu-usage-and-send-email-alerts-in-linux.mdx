@@ -12,7 +12,7 @@ canonical: https://www.bitdoze.com/monitor-cpu-usage-and-send-email-alerts-in-li
 ---
 
 import Button from '~/components/widgets/Button.astro';
-import { YouTube } from 'astro-embed';
+import YouTubeEmbed from '~/components/widgets/YouTubeEmbed.astro';
 
 Monitoring the CPU is very important on a Linux server as there may be cases when your applications will need more CPU and can consume everything. You would want to be notified via email in case the CPU usage spikes and you need to do some checks.
 
@@ -35,7 +35,10 @@ Having all of this in an email will help us better understand what is happening 
 
 ## Youtube Video With Details
 
-<YouTube id="https://www.youtube.com/embed/2Wmats7Q6ck" />
+<YouTubeEmbed
+  url="https://www.youtube.com/embed/2Wmats7Q6ck"
+  label="Monitor CPU Usage and Send Email Alerts in Linux"
+/>
 
 ## Shell Script To Be Used
 

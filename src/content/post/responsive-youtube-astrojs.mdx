@@ -11,7 +11,7 @@ canonical: https://www.bitdoze.com/responsive-youtube-astrojs/
 ---
 
 import { Picture } from '@astrojs/image/components';
-import { YouTube } from 'astro-embed';
+import YouTubeEmbed from '~/components/widgets/YouTubeEmbed.astro';
 import imag1 from '~/assets/images/2210/video-speed-score.jpeg';
 
 I am using [Astro.js](https://astro.build/) to host this blog on Cloudflare Pages and an important part of the blog is to be responsive and be able to add YouTube videos to the posts.
@@ -67,7 +67,7 @@ Now you should be able to use the video where you want in your MDX file. To add 
 
 And it will look like below where you can follow the tutorial for this article:
 
-<YouTube id="https://youtu.be/NkShQ1wwiCg" />
+<YouTubeEmbed url="https://www.youtube.com/embed/NkShQ1wwiCg" label="Add Responsive YouTube Videos to Astro.JS MDX" />
 
 ## Conclusions
 

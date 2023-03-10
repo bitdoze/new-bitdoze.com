@@ -1,16 +1,17 @@
 ---
-publishDate: 'Oct 18 2022'
+publishDate: 2022-10-18T00:00:00Z
 title: 'How To Deploy An Astro.JS Blog On Cloudflare'
 description: 'Deploy an Astro.JS blog or website to CloudFlare Pages for free.'
 image: '~/assets/images/2210/deploy-astro-cloudflare-blog.jpeg'
 category: 'cms'
 tags: [astro, tutorials]
+canonical: https://www.bitdoze.com/deploy-astrojs-cloudflare/
 ---
 
 import { Picture } from '@astrojs/image/components';
 import imag1 from '~/assets/images/2210/use-this-template.jpeg';
 import imag2 from '~/assets/images/2210/deploy-cloudflare-project.jpeg';
-import { YouTube } from 'astro-embed';
+import YouTubeEmbed from '~/components/widgets/YouTubeEmbed.astro';
 
 I am a WordPress user for years and lately, I have wanted to try something new and see how different it is. I have another website [WP Doze](https://www.wpdoze.com/) where I write about WordPress things but wanted to try something different.
 After searching online I found [Gatsby](https://www.gatsbyjs.com/) a static website generator that can help you have a blog or website fast, did a lot of [Gatsby courses](https://www.bitdoze.com/gatsby-js-online-courses/) to find out what is about and eventually came across [Astro](https://astro.build/).
@@ -55,7 +56,7 @@ npm update
 
 ## Video With Astro.js Deploy
 
-    <YouTube id="https://youtu.be/an0DrjkrUoc" />
+<YouTubeEmbed url="https://www.youtube.com/embed/an0DrjkrUoc" label="How To Deploy An Astro.JS Blog On Cloudflare" />{' '}
 
 ### 3. Modify the theme files
 
@@ -78,41 +79,41 @@ Below is the file used for bitdoze.com:
 
 ```js
 export const SITE = {
-	name: 'Bit Doze',
+  name: 'Bit Doze',
 
-	origin: 'https://www.bitdoze.com',
-	basePathname: '/',
+  origin: 'https://www.bitdoze.com',
+  basePathname: '/',
 
-	title: 'Bit Doze Website',
-	description: 'An Website about Linux, blogging, CMS and other internet news..',
+  title: 'Bit Doze Website',
+  description: 'An Website about Linux, blogging, CMS and other internet news..',
 
-	googleAnalyticsId: false, // or "G-XXXXXXXXXX",
-	googleSiteVerificationId: 'jyQEUqY6oYZKY6ZhkHatU7g4vVBBSb7z3Zw5bA',
+  googleAnalyticsId: false, // or "G-XXXXXXXXXX",
+  googleSiteVerificationId: 'jyQEUqY6oYZKY6ZhkHatU7g4vVBBSb7z3Zw5bA',
 };
 
 export const BLOG = {
-	disabled: false,
-	postsPerPage: 9,
+  disabled: false,
+  postsPerPage: 9,
 
-	blog: {
-		disabled: false,
-		pathname: 'blog', // blog main path, you can change this to "articles" (/articles)
-	},
+  blog: {
+    disabled: false,
+    pathname: 'blog', // blog main path, you can change this to "articles" (/articles)
+  },
 
-	post: {
-		disabled: false,
-		pathname: '', // empty for /some-post, value for /pathname/some-post
-	},
+  post: {
+    disabled: false,
+    pathname: '', // empty for /some-post, value for /pathname/some-post
+  },
 
-	category: {
-		disabled: false,
-		pathname: '', // set empty to change from /category/some-category to /some-category
-	},
+  category: {
+    disabled: false,
+    pathname: '', // set empty to change from /category/some-category to /some-category
+  },
 
-	tag: {
-		disabled: false,
-		pathname: 'tag', // set empty to change from /tag/some-tag to /some-tag
-	},
+  tag: {
+    disabled: false,
+    pathname: 'tag', // set empty to change from /tag/some-tag to /some-tag
+  },
 };
 ```
 
@@ -124,11 +125,11 @@ In here just add or delete the _li_ by modifying the _href_ with the path you ha
 
 ```html
 <li>
-	<a
-		class="font-medium hover:text-gray-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out"
-		href="/cms/"
-		>CMS</a
-	>
+  <a
+    class="font-medium hover:text-gray-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out"
+    href="/cms/"
+    >CMS</a
+  >
 </li>
 ```
 
@@ -140,13 +141,13 @@ In the footer I have some links to my twitter and GitHub profile, you should cha
 
 ```html
 <li>
-	<a
-		class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
-		aria-label="Twitter"
-		href="https://twitter.com/bitdozecom"
-	>
-		<Icon name="tabler:brand-twitter" class="w-5 h-5" />
-	</a>
+  <a
+    class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+    aria-label="Twitter"
+    href="https://twitter.com/bitdozecom"
+  >
+    <Icon name="tabler:brand-twitter" class="w-5 h-5" />
+  </a>
 </li>
 ```
 
@@ -156,9 +157,9 @@ Logo is a text one, created from a gradient colour of primary and secondary, to 
 
 ```html
 <span
-	class="bg-clip-text font-bold text-4xl text-transparent bg-gradient-to-r from-primary-500 to-secondary-500 sm:whitespace-nowrap"
+  class="bg-clip-text font-bold text-4xl text-transparent bg-gradient-to-r from-primary-500 to-secondary-500 sm:whitespace-nowrap"
 >
-	Bit Doze</span
+  Bit Doze</span
 >
 ```
 
@@ -168,27 +169,27 @@ In the front page I have Hero with the welcome and social links, to modify the t
 
 ```html
 <h1 class="text-5xl md:text-[3.50rem] font-bold leading-tighter tracking-tighter mb-4 font-heading">
-	Welcome to
-	<span class="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500 sm:whitespace-nowrap"
-		>Bit Doze</span
-	>
+  Welcome to
+  <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500 sm:whitespace-nowrap"
+    >Bit Doze</span
+  >
 </h1>
 <div class="max-w-3xl mx-auto">
-	<p class="text-xl text-gray-600 mb-8 dark:text-slate-400">
-		Join the community to find out more about, VPS, blogging, CMS.
-	</p>
+  <p class="text-xl text-gray-600 mb-8 dark:text-slate-400">
+    Join the community to find out more about, VPS, blogging, CMS.
+  </p>
 </div>
 
 <ul class="flex justify-center items-center mb-4 md:order-1 -ml-2 md:ml-4 md:mb-0">
-	<li>
-		<a
-			class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
-			aria-label="Twitter"
-			href="https://twitter.com/bitdoze"
-		>
-			<Icon name="tabler:brand-twitter" class="w-20 h-20" />
-		</a>
-	</li>
+  <li>
+    <a
+      class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+      aria-label="Twitter"
+      href="https://twitter.com/bitdoze"
+    >
+      <Icon name="tabler:brand-twitter" class="w-20 h-20" />
+    </a>
+  </li>
 </ul>
 ```
 
@@ -213,12 +214,12 @@ After you added your own articles with picture to modify the first page articles
 
 ```js
 const ids = [
-	'deploy-astrojs-cloudflare',
-	'best-astrojs-online-courses',
-	'link-github-with-ssh-maco-linux',
-	'install-nodejs-using-nvm-macos-ubuntu',
-	'gatsby-js-online-courses',
-	'embed-youtube-videos-to-gatsby',
+  'deploy-astrojs-cloudflare',
+  'best-astrojs-online-courses',
+  'link-github-with-ssh-maco-linux',
+  'install-nodejs-using-nvm-macos-ubuntu',
+  'gatsby-js-online-courses',
+  'embed-youtube-videos-to-gatsby',
 ];
 ```
 
