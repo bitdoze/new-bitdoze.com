@@ -117,7 +117,7 @@ export const findPostsByIds = async (ids: Array<string>): Promise<Array<Post>> =
 
 /** */
 export const findLatestPosts = async ({ count }: { count?: number }): Promise<Array<Post>> => {
-  const _count = count || 4;
+  const _count = count || 6;
   const posts = await fetchPosts();
 
   return posts ? posts.slice(0, _count) : [];

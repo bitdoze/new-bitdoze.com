@@ -1,0 +1,20 @@
+---
+import { getCanonical, getHomePermalink } from '~/utils/permalinks';
+import Layout from '~/layouts/PageLayout.astro';
+
+const meta = {
+	title: 'Bit Doze thank you Page',
+	description: 'Bit Doze thank you Page',
+	canonical: getCanonical(getHomePermalink()) + '/thank-you/',
+};
+---
+
+<Layout {meta}>
+	<section class="bg-white dark:bg-gray-900">
+		<div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+			<h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">
+				Thank You For Contacting Us! We will get back to you shortly.
+			</h2>
+		</div>
+	</section>
+</Layout>

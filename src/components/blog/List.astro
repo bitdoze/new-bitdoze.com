@@ -9,7 +9,9 @@ export interface Props {
 const { posts } = Astro.props;
 ---
 
-<ul>
+<ul
+  class="grid mx-auto max-w-6xl ms:grid-cols-1 md:grid-cols-2 gap-4 mt-12 lg:grid lg:grid-cols-3 space-y-5 lg:space-y-0"
+>
   {
     posts.map((post) => (
       <li class="mb-12 md:mb-20">

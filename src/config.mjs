@@ -1,15 +1,14 @@
 import defaultImage from './assets/images/default.png';
 
 const CONFIG = {
-  name: 'AstroWind',
+  name: 'Bit Doze',
 
-  origin: 'https://astrowind.vercel.app',
+  origin: 'https://www.bitdoze.com',
   basePathname: '/',
-  trailingSlash: false,
+  trailingSlash: true,
 
-  title: 'AstroWind — Free template for create a website with Astro + Tailwind CSS',
-  description:
-    '🚀 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs.',
+  title: 'Bit Doze Website',
+  description: 'An Website about Linux, blogging, CMS and other internet news..',
   defaultImage: defaultImage,
 
   defaultTheme: 'system', // Values: "system" | "light" | "dark" | "light:only" | "dark:only"
@@ -25,11 +24,11 @@ const CONFIG = {
   }),
 
   googleAnalyticsId: false, // or "G-XXXXXXXXXX",
-  googleSiteVerificationId: 'orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M',
+  googleSiteVerificationId: 'jyQEUqY6oYZKY6ZhkHatU7g4vVBBSb7z3Zw5bA',
 
   blog: {
     disabled: false,
-    postsPerPage: 4,
+    postsPerPage: 9,
 
     post: {
       permalink: '/%slug%', // Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
@@ -44,7 +43,7 @@ const CONFIG = {
     },
 
     category: {
-      pathname: 'category', // Category main path /category/some-category
+      pathname: 'cat', // Category main path /category/some-category
       noindex: true,
       disabled: false,
     },
