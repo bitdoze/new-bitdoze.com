@@ -83,7 +83,7 @@ export const footerData = {
     { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/bitdoze' },
   ],
   footNote: `
-    <span class="w-5 h-5 md:w-6 md:h-6 md:-mt-0.5 bg-cover mr-1.5 float-left rounded-sm bg-[url('https:/www.bitdoze.com/bitdoze-50x50.png')]"></span>
-  <a class="text-blue-600 hover:underline dark:text-gray-200" href="https://www.bitdoze.com/"> BitDoze</a> · All rights reserved.
+    <span class="w-5 h-5 md:w-6 md:h-6 md:-mt-0.5 bg-cover mr-1.5 float-left rounded-sm "></span>
+  <a class="text-blue-600 hover:underline dark:text-gray-200" href="https://www.bitdoze.com/"> bitdoze.com</a> · All rights reserved.
   `,
 };
