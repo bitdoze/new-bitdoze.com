@@ -32,6 +32,10 @@ export const headerData = {
       href: '/cat/cms/',
     },
     {
+      text: 'Tools',
+      href: '/cat/tools/',
+    },
+    {
       text: 'Blog',
       href: getBlogPermalink(),
     },
@@ -49,14 +53,8 @@ export const footerData = {
       ],
     },
     {
-      title: 'Resources',
-      links: [
-        { text: 'Developer API', href: '#' },
-        { text: 'Partners', href: '#' },
-        { text: 'Atom', href: '#' },
-        { text: 'Electron', href: '#' },
-        { text: 'AstroWind Desktop', href: '#' },
-      ],
+      title: 'Tools',
+      links: [{ text: 'Shots.so', href: '/shots-so-mockups/' }],
     },
     {
       title: 'Usefull',
