@@ -50,11 +50,15 @@ export const footerData = {
       links: [
         { text: 'VPS', href: '/cat/vps/' },
         { text: 'CMS', href: '/cat/cms' },
+        { text: 'Tools', href: '/cat/tools/' },
       ],
     },
     {
       title: 'Tools',
-      links: [{ text: 'Shots.so', href: '/shots-so-mockups/' }],
+      links: [
+        { text: 'Shots.so', href: 'https://www.bitdoze.com/shots-so-mockups/' },
+        { text: 'Uptime Kuma', href: '/uptime-kuma-tool/' },
+      ],
     },
     {
       title: 'Usefull',
