@@ -1,6 +1,5 @@
 ---
 import { AstroSeo } from '@astrolib/seo';
-import { Plausible } from 'astro-analytics';
 import { getImage } from '@astrojs/image';
 
 import { SITE } from '~/config.mjs';
@@ -85,7 +84,6 @@ const image =
 
 <!-- Google Site Verification -->
 {SITE.googleSiteVerificationId && <meta name="google-site-verification" content={SITE.googleSiteVerificationId} />}
-
 <script src="https://an.bitdoze.com/js/plausible.outbound-links.js" data-domain="bitdoze.com" defer></script>
 <link rel="shortcut icon" href={getAsset('/favicon.ico')} />
 <link rel="icon" type="image/svg+xml" href={getAsset('/favicon.ico')} />
