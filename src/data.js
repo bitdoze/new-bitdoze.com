@@ -79,7 +79,7 @@ export const footerData = {
     {
       ariaLabel: 'Youtube',
       icon: 'tabler:brand-youtube',
-      href: 'https://www.youtube.com/channel/UCFWumT6DmvoDrerQRE4BYzw',
+      href: 'https://www.youtube.com/channel/UCGsUtKhXsRrMvYAWm8q0bCg',
     },
     { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: 'https://www.facebook.com/bitdozecom' },
     { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
