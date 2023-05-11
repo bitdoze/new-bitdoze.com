@@ -17,7 +17,7 @@ Docker Compose is a tool that lets you define and run multiple containers as a s
 
 I am having a [Plausible](https://plausible.io/) instalation done with docker compose that has almost 1 year since I have updated, it was builed followind the tutorial: [Install Plausible Google Analytics](https://www.wpdoze.com/how-to-install-plausible/) and it has the bellow docker compose file:
 
-```yml
+```yaml
 version: '3.3'
 services:
   mail:
@@ -92,7 +92,7 @@ Of course, if you'd like to update the other containers as well, you're more tha
 
 The data for plausible analytics is helled in volumes, so if you check the yml file you see:
 
-```yml
+```yaml
 volumes:
       - db-data:/var/lib/postgresql/data
 volumes:
