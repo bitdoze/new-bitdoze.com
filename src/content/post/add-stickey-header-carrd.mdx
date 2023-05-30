@@ -1,0 +1,84 @@
+---
+publishDate: 2023-05-30T00:00:00Z
+title: 'How To Add a Sticky Header to Carrd'
+description: "Let's see how you can add a sticky header to an Carrd website for a better experience."
+image: '~/assets/images/23/05/stickey_header_card.jpeg'
+category: 'cms'
+tags:
+  - carrd
+canonical: https://www.bitdoze.com/add-stickey-header-carrd/
+---
+
+import Button from '~/components/widgets/Button.astro';
+import { Picture } from '@astrojs/image/components';
+import YouTubeEmbed from '~/components/widgets/YouTubeEmbed.astro';
+import imag1 from '~/assets/images/23/05/carrd-page-settings.png';
+
+In this totorial we are going to see how we can add a sticky header or navbar to a Carrd.co website to make it more interesting for your visitors. The code will need the Pro standard plan as we will need to use the embed widget, you don't need to be on the latest plan as we will take the container ID.
+
+There will be 2 codes, one that is making everything sticky or fix how you want to call it on mobile and PC also and the second code that will make everything sticky on the screens bigegr then 600px.
+
+If you are interested on more carrd tutorials you can check:
+
+- [Carrd.co Review](https://www.bitdoze.com/carrd-review/)
+- [Add Carrd Cookie Notice](https://www.bitdoze.com/add-cookie-notice-carrd/)
+
+## How To Add a Sticky Header to Carrd
+
+### 1. Set Carrd.co Page Settings
+
+First thing you need to do is to set the vertical and horizontal padding to 0 in the page settings, in case thy are not 0 the floating navbar will not have the correct sizes and will not look good.
+
+<Picture src={imag1} widths={[200, 400, 900]} sizes="(max-width: 900px) 100vw, 900px" alt="Carrd page settings" />
+
+<Button link="https:/go.bitdoze.com/carrd" text="Carrd.co" />
+
+### 2. Get Container ID OR Add a Name to Container
+
+In case you are not on the Pro Plus pland and you are on the standard plan you will need to get the ID of the container that is the header, to do that you need to use the inspect element in the browser as you see in the video. The ID is important as will be linked to the CSS that will make the header stickey. The vide has everything you need,
+
+In case you are on the Pro Plus plan you can add an ID to the container and use that in you CSS code, you just go to settings and add your ID there.
+
+<Button link="https:/go.bitdoze.com/carrd" text="Carrd.co" />
+
+### 3. CSS Code
+
+Next thing that you need to do is to add a embed widget and add the CSS code bellow, as mentioned there will be 2 codes, one that is making the header stickey everywhere and the other that is not making the code stickey on mobile
+
+#### Stickey On Mobile Also
+
+```html
+<style>
+  #container01 {
+    position: fixed !important;
+    z-index: 99;
+    top: 0;
+  }
+</style>
+```
+
+#### Stickey On Displays bigger Then 600px
+
+```html
+<style>
+  @media screen and (min-width: 600px) {
+    #container01 {
+      position: fixed !important;
+      z-index: 99;
+      top: 0;
+    }
+  }
+</style>
+```
+
+In the above codes you need to replace **container01** with the ID of your container from second point
+
+### 4. Add a Space
+
+The next container will be pushed up and the website can look bad, to fix that you can add a divider and add margins to the top of it, you can use the container bellow paddings but is better to use the devider as you can controll the mobile padding also, and in function off what you want you can play arround. All the explinations are on the video
+
+### 5. Save the page
+
+After you are happy with the changes you can save it and see how it looks.
+
+<Button link="https:/go.bitdoze.com/carrd" text="Carrd.co" />
