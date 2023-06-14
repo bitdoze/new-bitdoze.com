@@ -2,8 +2,9 @@ import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import type { Post } from '~/types';
 import { cleanSlug, trimSlash, POST_PERMALINK_PATTERN } from './permalinks';
+import { seriesNames } from '~/data';
 
-const generatePermalink = async ({ id, slug, publishDate, category }) => {
+const generatePermalink = async ({ id, slug, publishDate, series }) => {
   const year = String(publishDate.getFullYear()).padStart(4, '0');
   const month = String(publishDate.getMonth() + 1).padStart(2, '0');
   const day = String(publishDate.getDate()).padStart(2, '0');
@@ -13,7 +14,7 @@ const generatePermalink = async ({ id, slug, publishDate, category }) => {
 
   const permalink = POST_PERMALINK_PATTERN.replace('%slug%', slug)
     .replace('%id%', id)
-    .replace('%category%', category || '')
+    .replace('%series%', series || '')
     .replace('%year%', year)
     .replace('%month%', month)
     .replace('%day%', day)
@@ -34,7 +35,7 @@ const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> =
 
   const {
     tags: rawTags = [],
-    category: rawCategory,
+    series: rawSeries,
     author = 'Anonymous',
     publishDate: rawPublishDate = new Date(),
     ...rest
@@ -42,7 +43,7 @@ const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> =
 
   const slug = cleanSlug(rawSlug.split('/').pop());
   const publishDate = new Date(rawPublishDate);
-  const category = rawCategory ? cleanSlug(rawCategory) : undefined;
+  const series = rawSeries ? cleanSlug(rawSeries) : undefined;
   const tags = rawTags.map((tag: string) => cleanSlug(tag));
 
   return {
@@ -50,7 +51,8 @@ const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> =
     slug: slug,
 
     publishDate: publishDate,
-    category: category,
+    series: series,
+    seriesName: getSeriesName(series),
     tags: tags,
     author: author,
 
@@ -59,13 +61,13 @@ const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> =
     Content: Content,
     // or 'body' in case you consume from API
 
-    permalink: await generatePermalink({ id, slug, publishDate, category }),
+    permalink: await generatePermalink({ id, slug, publishDate, series }),
 
     readingTime: remarkPluginFrontmatter?.readingTime,
   };
 };
 
-const load = async function (): Promise<Array<Post>> {
+const load = async function (): Promise<Post[]> {
   const posts = await getCollection('post');
   const normalizedPosts = posts.map(async (post) => await getNormalizedPost(post));
 
@@ -76,10 +78,11 @@ const load = async function (): Promise<Array<Post>> {
   return results;
 };
 
-let _posts: Array<Post>;
+let _posts: Post[];
+let _series: Map<string, Post[]>;
 
 /** */
-export const fetchPosts = async (): Promise<Array<Post>> => {
+export const fetchPosts = async (): Promise<Post[]> => {
   if (!_posts) {
     _posts = await load();
   }
@@ -88,12 +91,12 @@ export const fetchPosts = async (): Promise<Array<Post>> => {
 };
 
 /** */
-export const findPostsBySlugs = async (slugs: Array<string>): Promise<Array<Post>> => {
+export const findPostsBySlugs = async (slugs: string[]): Promise<Post[]> => {
   if (!Array.isArray(slugs)) return [];
 
   const posts = await fetchPosts();
 
-  return slugs.reduce(function (r: Array<Post>, slug: string) {
+  return slugs.reduce(function (r: Post[], slug: string) {
     posts.some(function (post: Post) {
       return slug === post.slug && r.push(post);
     });
@@ -102,12 +105,12 @@ export const findPostsBySlugs = async (slugs: Array<string>): Promise<Array<Post
 };
 
 /** */
-export const findPostsByIds = async (ids: Array<string>): Promise<Array<Post>> => {
+export const findPostsByIds = async (ids: string[]): Promise<Post[]> => {
   if (!Array.isArray(ids)) return [];
 
   const posts = await fetchPosts();
 
-  return ids.reduce(function (r: Array<Post>, id: string) {
+  return ids.reduce(function (r: Post[], id: string) {
     posts.some(function (post: Post) {
       return id === post.id && r.push(post);
     });
@@ -115,10 +118,63 @@ export const findPostsByIds = async (ids: Array<string>): Promise<Array<Post>> =
   }, []);
 };
 
+export const findPostsInSeries = (series?: string): Post[] => {
+  if (!series) return [];
+
+  if (!_series) {
+    _series = new Map<string, Post[]>();
+    _posts.forEach((post) => {
+      if (!post.series) return;
+      const series = post.series;
+      const seriesPosts = _series.get(series) || [];
+      seriesPosts.push(post);
+      _series.set(series, seriesPosts);
+    });
+  }
+
+  return _series.get(series) || [];
+};
+
 /** */
-export const findLatestPosts = async ({ count }: { count?: number }): Promise<Array<Post>> => {
-  const _count = count || 6;
+export const findLatestPosts = async ({ count }: { count?: number }): Promise<Post[]> => {
+  const _count = count || 4;
   const posts = await fetchPosts();
 
   return posts ? posts.slice(0, _count) : [];
 };
+
+export const findSimilarPosts = (post: Post, config?: { count?: number }): Post[] => {
+  const _count = config?.count || 3;
+
+  const relatedPosts = _posts.filter(
+    (p) => p.id !== post.id && !!p.image && p.tags?.some((tag) => post.tags?.includes(tag))
+  );
+
+  if (relatedPosts.length < _count) {
+    const randomPosts = _posts
+      .filter((p) => p.id !== post.id && !!p.image && !p.tags?.some((tag) => post.tags?.includes(tag)))
+      .sort(() => Math.random() - 0.5)
+      .slice(0, _count - relatedPosts.length);
+
+    relatedPosts.push(...randomPosts);
+  }
+
+  return relatedPosts
+    .map((p) => {
+      const score =
+        p.tags?.reduce((acc, tag) => {
+          if (post.tags?.includes(tag)) {
+            acc += 1;
+          }
+          return acc;
+        }, 0) ?? 0;
+      return {
+        p,
+        score: score,
+      };
+    })
+    .sort((a, b) => b.score - a.score)
+    .map((p) => p.p)
+    .slice(0, _count);
+};
+export const getSeriesName = (series?: string): string => (series ? seriesNames[series] || series : '');

@@ -90,3 +90,6 @@ export const footerData = {
   <a class="text-blue-600 hover:underline dark:text-gray-200" href="https://www.bitdoze.com/"> bitdoze.com</a> · All rights reserved.
   `,
 };
+export const seriesNames = {
+  'Astro-Deploy': 'Astro Deploy',
+};

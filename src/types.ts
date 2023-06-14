@@ -14,6 +14,8 @@ export interface Post {
   draft?: boolean;
 
   excerpt?: string;
+  series?: string;
+  seriesName?: string;
   category?: string;
   tags?: Array<string>;
   author?: string;
