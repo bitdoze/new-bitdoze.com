@@ -58,7 +58,7 @@ export const footerData = {
       links: [
         { text: 'Shots.so', href: '/shots-so-mockups/' },
         { text: 'Uptime Kuma', href: '/uptime-kuma-tool/' },
-        { text: 'Plausible', href: 'plausible-tool/' },
+        { text: 'Plausible', href: '/plausible-tool/' },
       ],
     },
     {

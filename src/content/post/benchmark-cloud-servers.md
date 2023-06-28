@@ -3,7 +3,7 @@ publishDate: 2022-09-15T00:00:00Z
 title: 'How to Benchmark Cloud Servers (VPS)'
 description: "Let's see how we can Benchmark a VPS and see exactly of what is capable off"
 image: '~/assets/images/benchmark_vps.jpeg'
-category: 'VPS'
+category: 'vps'
 tags:
   - linux
 canonical: https://www.bitdoze.com/benchmark-cloud-servers/
