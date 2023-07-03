@@ -2,7 +2,7 @@
 publishDate: 2023-07-03T00:00:00Z
 title: 'Best Astro JS Free Themes'
 description: 'Complete list with some of the best Astro JS themes that you can use to build your blog or website'
-image: '~/assets/images/23/05/add_cookie_carrd.jpeg'
+image: '~/assets/images/23/07/best-astro-themes.jpeg'
 category: 'cms'
 tags:
   - astro
@@ -10,6 +10,11 @@ tags:
 ---
 
 import Button from '~/components/widgets/Button.astro';
+import { Picture } from '@astrojs/image/components';
+import img1 from '~/assets/images/23/07/01astrowind.jpeg';
+import img2 from '~/assets/images/23/07/02bookwarm.jpeg';
+import img3 from '~/assets/images/23/07/03blogster.jpeg';
+import img4 from '~/assets/images/23/07/04stablo.jpeg';
 
 [Astro JS](https://astro.build/) is a relatevely new framework that has a lot of traction, I have decided to build my blog on this framwork because it's fast and easy to use, I have created also a couple of articles in the past about it like:
 
@@ -24,28 +29,34 @@ Let's explore the themes
 
 ### AstroWind
 
-![Astro Wind](~/assets/images/23/07/01astrowind.jpeg)
-AstroWind is a free and open-source template to make your website using Astro 2.0 + Tailwind CSS. It is designed taking into account web best practices and supports Dark mode
+<Picture src={img1} widths={[200, 400, 900]} sizes="(max-width: 900px) 100vw, 900px" alt="Astro Wind" />
+AstroWind is a free and open-source template to make your website using Astro 2.0 + Tailwind CSS. It is designed taking into
+account web best practices and supports Dark mode
 
 <Button link="https://astrowind.vercel.app/" text="Demo" />
 
 ### Bookworm Light Astro
 
-![Bookworm Light Astro](~/assets/images/23/07/02bookwarm.jpeg)
+<Picture src={img2} widths={[200, 400, 900]} sizes="(max-width: 900px) 100vw, 900px" alt="Bookworm Light Astro" />
+
 Bookworm Light is a feature-rich, minimal, highly customizable, easy-to-use free Astro blog theme. It is a minimal multi-author Astro blog theme that is perfect for any kind of blog website
 
 <Button link="https://bookworm-light-astro.vercel.app/" text="Demo" />
 
 ### Blogster
 
-![Blogster](~/assets/images/23/07/03blogster.jpeg)
+<Picture src={img3} widths={[200, 400, 900]} sizes="(max-width: 900px) 100vw, 900px" alt="Blogster" />
+
 This is a starter template for creating a blog with Blogster. It comes in four themes, including Bubblegum which is colorful and built with Tailwind. The template is fast, mobile-friendly, accessible, and has a perfect lighthouse score. It also offers extended markdown with custom components and a built-in RSS feed for SEO.
 
 <Button link="https://blogster-bubblegum.netlify.app/" text="Demo" />
 
 ### Stablo Blog Template
 
-![Stablo Blog Template](~/assets/images/23/07/04stablo.jpeg)
-Stablo is a minimal and easy-to-use blog template that is free and open-source. It is built using Astro, Tailwind CSS, and MDX, and is fully mobile-responsive with a clean and modern design. It offers configurable dark and light themes, About and Archive pages, and a working contact page powered by Web3Forms. The template is sponsored by Web3Templates and can be launched quickly for personal or startup blogs.
+<Picture src={img3} widths={[200, 400, 900]} sizes="(max-width: 900px) 100vw, 900px" alt="Stablo Blog Template" />
+Stablo is a minimal and easy-to-use blog template that is free and open-source. It is built using Astro, Tailwind CSS, and
+MDX, and is fully mobile-responsive with a clean and modern design. It offers configurable dark and light themes, About and
+Archive pages, and a working contact page powered by Web3Forms. The template is sponsored by Web3Templates and can be launched
+quickly for personal or startup blogs.
 
 <Button link="https://stablo-astro.web3templates.com/" text="Demo" />
