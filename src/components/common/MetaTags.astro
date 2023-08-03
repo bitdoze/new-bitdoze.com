@@ -46,6 +46,17 @@ const image =
     ? // @ts-ignore
       new URL(getRelativeUrlByFilePath(_image.src), Astro.site)
     : null;
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title,
+  description: description,
+  author: {
+    '@type': 'Person',
+    name: 'Dragos Balota',
+    url: 'https://www.bitdoze.com/about/',
+  },
+};
 ---
 
 <meta charset="UTF-8" />
@@ -79,6 +90,8 @@ const image =
     cardType: image ? 'summary_large_image' : undefined,
   }}
 />
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
 <CustomStyles />
 
