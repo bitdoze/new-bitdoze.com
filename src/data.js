@@ -7,7 +7,7 @@ export const headerData = {
       links: [
         {
           text: 'About us',
-          href: '#',
+          href: '/about/',
         },
         {
           text: 'Contact',
@@ -71,8 +71,9 @@ export const footerData = {
     },
   ],
   secondaryLinks: [
-    { text: 'Terms', href: getPermalink('/terms') },
-    { text: 'Privacy Policy', href: getPermalink('/privacy') },
+    { text: 'Terms', href: getPermalink('/terms/') },
+    { text: 'Privacy Policy', href: getPermalink('/privacy/') },
+    { text: 'About', href: getPermalink('/about/') },
   ],
   socialLinks: [
     { ariaLabel: 'Twitter', icon: 'tabler:brand-twitter', href: 'https://twitter.com/bitdoze' },
